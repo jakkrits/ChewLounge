@@ -30,7 +30,7 @@
     "helmet": "3.6.1",
     "ip": "1.1.5",
     "isomorphic-fetch": "2.2.1",
-    "localforage": "1.5.0",
+    "localforage": "^1.5.0",
     "lru-cache": "4.1.1",
     "moment": "2.18.1",
     "next": "3.0.1-beta.8",
