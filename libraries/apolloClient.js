@@ -5,7 +5,7 @@ const initNetworkInterface = graphqlUrl => {
   const networkInterface = createNetworkInterface({
     uri:
       graphqlUrl ||
-      'https://api.graph.cool/simple/v1/cixmkt2ul01q00122mksg82pn',
+      'https://api.graph.cool/simple/v1/cj4mzi2969klp0149awcubkdo',
     opts: {
       credentials: 'same-origin'
     }
@@ -37,7 +37,8 @@ const createClient = headers =>
     ssrMode: !process.browser,
     ssrForceFetchDelay: 100,
     headers,
-    networkInterface: initNetworkInterface()
+    networkInterface: initNetworkInterface(),
+    dataIdFromObject: o => o.id
   });
 
 export default (headers, graphqlUrl) => {
