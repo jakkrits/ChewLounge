@@ -2,6 +2,9 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { IgnorePlugin } = require('webpack');
 const OfflinePlugin = require('offline-plugin');
 
+// Load environment variables from .env file if present
+require('dotenv').load();
+
 module.exports = {
   webpack: (config, { dev }) => {
     const prod = !dev;
