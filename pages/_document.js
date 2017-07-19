@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="robots" content="index,follow" />
           <meta httpEquiv="expires" content="10800" />
-          <meta name="generator" content="RAN! 0.2.5" />
+          <meta name="generator" content="PPSMART CLTS 1.0" />
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.min.css"

@@ -11,13 +11,7 @@ const LinkList = ({ className, pathname }) =>
     <Link prefetch route={Router.linkPage('create')}>
       <a className={pathname === '/create_post' && 'is-active'}>Create</a>
     </Link>
-    <a
-      href="https://github.com/Sly777/ran"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      RAN! @ Github
-    </a>
+    <a className={pathname === '/login' && 'is-active'}>Login</a>
   </nav>;
 
 LinkList.propTypes = {

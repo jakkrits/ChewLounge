@@ -55,6 +55,9 @@ export default Component =>
     }
 
     render() {
+      console.log(this.props.headers);
+      console.log(this.props.accessToken);
+      console.log(this.props.initialState);
       return (
         <ApolloProvider client={this.apolloClient} store={this.reduxStore}>
           <Component {...this.props} />

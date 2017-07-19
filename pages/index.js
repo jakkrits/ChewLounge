@@ -7,7 +7,7 @@ import withData from '../libraries/withData';
 export default withData(props =>
   <App>
     <Helmet>
-      <title>RAN! Example</title>
+      <title>ChewLounge Timesheet</title>
     </Helmet>
     <Header pathname={props.url.pathname} />
     <PostList />
