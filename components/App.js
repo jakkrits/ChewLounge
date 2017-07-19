@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
 import { ThemeProvider, injectGlobal } from 'styled-components';
 import color from 'color';
+import { graphql, gql } from 'react-apollo';
 import themeList from './../libraries/theme';
 import ThemedApp from './ThemedApp';
 
 let offlineInstalled = false;
 
-const App = ({ children, theme }) => {
+// const clientId = 'nRF8JVHj9lMFrY2uelAeisnVMmO7kQzY';
+// const domain = 'appillustrator.au.auth0.com';
+
+const App = ({ children, theme, data }) => {
   const themeName = !themeList[theme] ? 'main' : theme;
   if (!themeList[themeName].helper) themeList[themeName].helper = color;
-
-  console.log('READING FROM APP:');
-  console.log(process.env.PORT);
 
   if (process.env.OFFLINE_SUPPORT && process.browser && !offlineInstalled) {
     const OfflinePlugin = require('offline-plugin/runtime'); // eslint-disable-line global-require
@@ -26,6 +27,8 @@ const App = ({ children, theme }) => {
     });
     offlineInstalled = true;
   }
+
+  console.error(data);
 
   return (
     <ThemeProvider theme={themeList[themeName]}>
@@ -42,7 +45,8 @@ App.defaultProps = {
 
 App.propTypes = {
   children: PropTypes.array.isRequired,
-  theme: PropTypes.string
+  theme: PropTypes.string,
+  data: PropTypes.object.isRequired
 };
 
 injectGlobal`
@@ -55,4 +59,14 @@ injectGlobal`
   }
 `;
 
-export default App;
+const userQuery = gql`
+  query userQuery {
+    user {
+      id
+    }
+  }
+`;
+
+export default graphql(userQuery, { options: { fetchPolicy: 'network-only' } })(
+  App
+);
