@@ -11,6 +11,9 @@ const helmet = require('helmet');
 const Router = require('./routes').Router;
 const logger = require('./server/logger');
 
+// Load environment variables from .env file if present
+require('dotenv').load();
+
 const isDev = process.env.NODE_ENV !== 'production';
 const isProd = !isDev;
 const ngrok = isDev && process.env.ENABLE_TUNNEL ? require('ngrok') : null;
