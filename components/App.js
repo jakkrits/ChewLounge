@@ -10,6 +10,9 @@ const App = ({ children, theme }) => {
   const themeName = !themeList[theme] ? 'main' : theme;
   if (!themeList[themeName].helper) themeList[themeName].helper = color;
 
+  console.log('READING FROM APP:');
+  console.log(process.env.PORT);
+
   if (process.env.OFFLINE_SUPPORT && process.browser && !offlineInstalled) {
     const OfflinePlugin = require('offline-plugin/runtime'); // eslint-disable-line global-require
 
